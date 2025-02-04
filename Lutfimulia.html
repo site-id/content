@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Tag viewport untuk responsif -->
     <title>Curriculum Vitae - Lutfi Mulia Sari</title>
     <style>
         body {
@@ -35,7 +35,7 @@
         }
         .profile-photo img {
             width: 150px; /* Adjust width */
-            height: 200px; /* Adjust height */
+            height: 150px; /* Adjust height */
             border-radius: 50%; /* Oval shape */
             object-fit: cover; /* Ensures the image fills the oval */
             object-position: top; /* Moves the image upward to center it better */
@@ -51,11 +51,30 @@
             padding: 10px;
             border-radius: 5px;
         }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px; /* Reduce padding on smaller screens */
+            }
+            .profile-photo img {
+                width: 120px; /* Smaller profile photo on mobile */
+                height: 120px; /* Smaller profile photo on mobile */
+            }
+        }
+
+        @media (min-width: 601px) {
+            .contact-info, .about, .experience, .education, .skills {
+                max-width: 800px; /* Limit width for larger screens */
+                margin-left: auto;
+                margin-right: auto; /* Center content on larger screens */
+            }
+        }
     </style>
 </head>
 <body>
 
-<h1></h1>
+<h1>Curriculum Vitae</h1>
 
 <div class="profile-photo">
     <img src="https://site-id.github.io/content/Lutfi.jpg" alt="Foto Profil Lutfi Mulia Sari">
