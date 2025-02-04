@@ -28,16 +28,18 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .profile-photo {
-            display: block;
-            margin: 0 auto;
-            width: 150px; /* Adjust width */
-            height: 150px; /* Adjust height */
-            border-radius: 75px; /* Oval shape */
-            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
         }
         .profile-photo img {
-            width: 100%;
-            height: auto;
+            width: 150px; /* Adjust width */
+            height: 200px; /* Adjust height */
+            border-radius: 50%; /* Oval shape */
+            object-fit: cover; /* Ensures the image fills the oval */
+            object-position: top; /* Moves the image upward to center it better */
+            border: 3px solid #007C92; /* Adds a Tiffany Blue border */
         }
         .skills ul {
             list-style-type: none;
@@ -53,7 +55,7 @@
 </head>
 <body>
 
-<h1>Curriculum Vitae</h1>
+<h1></h1>
 
 <div class="profile-photo">
     <img src="https://site-id.github.io/content/Lutfi.jpg" alt="Foto Profil Lutfi Mulia Sari">
