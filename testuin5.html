@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +10,26 @@
     <style>
         /* Style untuk bagian berita (kiri) */
         #berita .card {
-            background-color: rgba(0, 0, 139, 0.7); /* Biru Dongker Tembus Pandang */
-            color: white; /* Teks putih agar terlihat di atas latar belakang biru */
+            background-color: rgba(173, 216, 230, 0.5);
+            /* Biru Tipis Keputihan Tembus Pandang (Light Blue) */
+            color: black;
+            /* Teks hitam agar terlihat di atas latar belakang biru */
         }
 
         #berita .card .card-body .btn-primary {
-            background-color: white; /* Warna putih */
+            background-color: white;
+            /* Warna putih */
             color: black;
+        }
+
+        /* Style untuk bagian kanan (Tentang Kami) */
+        .col-md-4 .card.bg-light {
+            background-color: rgba(211, 211, 211, 0.5) !important;
+            /* Abu-abu Tembus Pandang */
         }
     </style>
 </head>
+
 <body>
 
     <!-- Navbar -->
@@ -98,8 +109,10 @@
 
             <!-- Bagian Kanan (Tentang Kami & Data Organisasi + Link) -->
             <div class="col-md-4">
-                <div class="card bg-light mt-3"> <!-- Menambahkan margin-top -->
-                    <div class="card-body pt-3"> <!-- Menambahkan padding-top -->
+                <div class="card bg-light mt-3">
+                    <!-- Menambahkan margin-top -->
+                    <div class="card-body pt-3">
+                        <!-- Menambahkan padding-top -->
                         <h3 class="card-title text-center">Tentang Kami</h3>
                         <p class="card-text">HMPSPS adalah organisasi mahasiswa yang berfokus pada pengembangan akademik dan non-akademik mahasiswa Ilmu Perbankan Syariah.</p>
 
@@ -110,11 +123,14 @@
 
                         <div class="text-center mt-3">
                             <div class="dropdown">
-                                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Kepengurusan
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="https://site-id.github.io/content/testanggota.html" target="_blank">2025</a>
+                                    <a class="dropdown-item"
+                                        href="https://site-id.github.io/content/testanggota.html"
+                                        target="_blank">2025</a>
                                     <a class="dropdown-item" href="#">2026</a>
                                     <a class="dropdown-item" href="#">2027</a>
                                 </div>
@@ -141,4 +157,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
