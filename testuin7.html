@@ -186,12 +186,12 @@
         <div class="dropdown mt-3">
             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
                 data-bs-toggle="dropdown" aria-expanded="false">
-                Kepengurusan
+                Pilih Tahun
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="#" onclick="tampilkanPopup('2025')">2025</a></li>
-                <li><a class="dropdown-item" href="#" onclick="tampilkanPopup('2026')">2026</a></li>
-                <li><a class="dropdown-item" href="#" onclick="tampilkanPopup('2027')">2027</a></li>
+                <li><a class="dropdown-item" href="#" onclick="tampilkanPopup('testanggota_2025.html')">2025</a></li>
+                <li><a class="dropdown-item" href="#" onclick="tampilkanPopup('testanggota_2026.html')">2026</a></li>
+                <li><a class="dropdown-item" href="#" onclick="tampilkanPopup('testanggota_2027.html')">2027</a></li>
             </ul>
         </div>
     </div>
@@ -205,7 +205,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="isi-kepengurusan">
-                    <p class="text-center">Pilih tahun untuk melihat kepengurusan.</p>
+                    <p class="text-center">Memuat data kepengurusan...</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
@@ -215,26 +215,32 @@
     </div>
 
     <script>
-        function tampilkanPopup(tahun) {
+        function tampilkanPopup(file) {
             var kepengurusanModal = new bootstrap.Modal(document.getElementById('kepengurusanModal'));
             kepengurusanModal.show();
             
-            if (tahun) {
-                fetch(`testanggota.html`)
-                    .then(response => response.text())
-                    .then(data => {
-                        let parser = new DOMParser();
-                        let doc = parser.parseFromString(data, "text/html");
-                        let kepengurusan = doc.body.innerHTML;
-                        document.getElementById("isi-kepengurusan").innerHTML = kepengurusan;
-                    })
-                    .catch(error => {
-                        document.getElementById("isi-kepengurusan").innerHTML = "Gagal memuat data.";
-                    });
-            }
+            fetch(file)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('File tidak ditemukan');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    let parser = new DOMParser();
+                    let doc = parser.parseFromString(data, "text/html");
+                    let kepengurusan = doc.body.innerHTML;
+                    document.getElementById("isi-kepengurusan").innerHTML = kepengurusan;
+                })
+                .catch(error => {
+                    document.getElementById("isi-kepengurusan").innerHTML = "Gagal memuat data kepengurusan: " + error.message;
+                });
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
 </body>
 </html>
 
