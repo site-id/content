@@ -3,71 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Struktur Anggota HMPSPS</title>
+    <title>Anggota HMPSPS</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: auto;
+            display: block;
+        }
+    </style>
 </head>
-<body>
-    <div class="container my-5">
-        <h2 class="text-center">Struktur Anggota HMPSPS</h2>
+<body class="bg-light">
+    <div class="container text-center my-5">
+        <h2>Struktur Kepengurusan HMPSPS</h2>
         
-        <!-- Kepala Divisi -->
-        <div class="text-center my-4">
-            <div class="card mx-auto" style="width: 18rem;">
-                <img src="assets/kepala.jpg" class="card-img-top" alt="Kepala Divisi">
-                <div class="card-body">
-                    <h5 class="card-title">Nama Kepala Divisi</h5>
-                    <p class="card-text">Jabatan: Ketua Divisi</p>
+        <!-- Ketua Umum & Wakil Ketua -->
+        <div class="row justify-content-center my-4">
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <img src="assets/ketua.jpg" class="profile-img" alt="Ketua Umum">
+                    <h5 class="mt-3">Ketua Umum</h5>
+                    <p>Nama Ketua Umum</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <img src="assets/wakil.jpg" class="profile-img" alt="Wakil Ketua">
+                    <h5 class="mt-3">Wakil Ketua</h5>
+                    <p>Nama Wakil Ketua</p>
                 </div>
             </div>
         </div>
-
+        
         <!-- Divisi -->
-        <div class="row">
-            <!-- Humas -->
-            <div class="col-md-6">
-                <h4 class="text-center">Divisi Humas</h4>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <img src="assets/humas1.jpg" class="card-img-top" alt="Humas">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Nama Anggota</h5>
-                                <p class="card-text">Anggota Humas</p>
-                            </div>
-                        </div>
+        <div class="my-5">
+            <h3>Divisi Humas</h3>
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="card p-3">
+                        <img src="assets/humas-ketua.jpg" class="profile-img" alt="Ketua Humas">
+                        <h5 class="mt-3">Kepala Divisi Humas</h5>
+                        <p>Nama Kepala</p>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <img src="assets/humas2.jpg" class="card-img-top" alt="Humas">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Nama Anggota</h5>
-                                <p class="card-text">Anggota Humas</p>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-4" *ngFor="let i of [1,2,3,4,5]">
+                            <div class="card p-3">
+                                <img src="assets/humas-member.jpg" class="profile-img" alt="Anggota Humas">
+                                <h5 class="mt-3">Anggota</h5>
+                                <p>Nama Anggota</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Litbank -->
-            <div class="col-md-6">
-                <h4 class="text-center">Divisi Litbank</h4>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <img src="assets/litbank1.jpg" class="card-img-top" alt="Litbank">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Nama Anggota</h5>
-                                <p class="card-text">Anggota Litbank</p>
+        </div>
+        
+        <div class="my-5">
+            <h3>Divisi Litbank</h3>
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="card p-3">
+                        <img src="assets/litbank-ketua.jpg" class="profile-img" alt="Ketua Litbank">
+                        <h5 class="mt-3">Kepala Divisi Litbank</h5>
+                        <p>Nama Kepala</p>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card p-3">
+                                <img src="assets/litbank-member.jpg" class="profile-img" alt="Anggota Litbank">
+                                <h5 class="mt-3">Anggota</h5>
+                                <p>Nama Anggota</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <img src="assets/litbank2.jpg" class="card-img-top" alt="Litbank">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Nama Anggota</h5>
-                                <p class="card-text">Anggota Litbank</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="my-5">
+            <h3>Divisi Entrepreneur</h3>
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="card p-3">
+                        <img src="assets/entrepreneur-ketua.jpg" class="profile-img" alt="Ketua Entrepreneur">
+                        <h5 class="mt-3">Kepala Divisi Entrepreneur</h5>
+                        <p>Nama Kepala</p>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card p-3">
+                                <img src="assets/entrepreneur-member.jpg" class="profile-img" alt="Anggota Entrepreneur">
+                                <h5 class="mt-3">Anggota</h5>
+                                <p>Nama Anggota</p>
                             </div>
                         </div>
                     </div>
@@ -75,41 +111,31 @@
             </div>
         </div>
 
-        <!-- Entrepreneur, Media Informasi, PSDM -->
-        <div class="row mt-4">
-            <div class="col-md-4 text-center">
-                <h4>Divisi Entrepreneur</h4>
-                <div class="card">
-                    <img src="assets/entrepreneur.jpg" class="card-img-top" alt="Entrepreneur">
-                    <div class="card-body">
-                        <h5 class="card-title">Nama Anggota</h5>
-                        <p class="card-text">Anggota Entrepreneur</p>
+        <div class="my-5">
+            <h3>Divisi Media Informasi</h3>
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="card p-3">
+                        <img src="assets/media-ketua.jpg" class="profile-img" alt="Ketua Media Informasi">
+                        <h5 class="mt-3">Kepala Divisi Media Informasi</h5>
+                        <p>Nama Kepala</p>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <h4>Divisi Media Informasi</h4>
-                <div class="card">
-                    <img src="assets/media.jpg" class="card-img-top" alt="Media Informasi">
-                    <div class="card-body">
-                        <h5 class="card-title">Nama Anggota</h5>
-                        <p class="card-text">Anggota Media Informasi</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <h4>Divisi PSDM</h4>
-                <div class="card">
-                    <img src="assets/psdm.jpg" class="card-img-top" alt="PSDM">
-                    <div class="card-body">
-                        <h5 class="card-title">Nama Anggota</h5>
-                        <p class="card-text">Anggota PSDM</p>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card p-3">
+                                <img src="assets/media-member.jpg" class="profile-img" alt="Anggota Media Informasi">
+                                <h5 class="mt-3">Anggota</h5>
+                                <p>Nama Anggota</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
