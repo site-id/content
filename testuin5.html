@@ -26,7 +26,8 @@
         .col-md-4 .card.bg-light {
             background-color: rgba(211, 211, 211, 0.5) !important;
             /* Abu-abu Tembus Pandang */
-            height: 100%; /* Menyamakan tinggi card dengan kolom berita */
+            height: 100%;
+            /* Menyamakan tinggi card dengan kolom berita */
         }
 
         .col-md-4 {
@@ -37,13 +38,28 @@
         .col-md-4 .card {
             flex-grow: 1;
         }
+
+        /* Style untuk logo bundar */
+        .logo-organisasi {
+            width: 100px;
+            /* Sesuaikan ukuran logo */
+            height: 100px;
+            border-radius: 50%;
+            /* Membuat logo menjadi bundar */
+            object-fit: cover;
+            /* Memastikan gambar mengisi area bundar tanpa distorsi */
+            margin: 10px auto;
+            /* Membuat logo berada di tengah horizontal dan memberi margin atas-bawah */
+            display: block;
+            /* Memastikan margin berfungsi dengan benar */
+        }
     </style>
 </head>
 
 <body>
 
     <!-- Judul Halaman -->
-    <div class="container mt-3 text-center">
+    <div class="container mt-5 pt-4 text-center"> <!-- Menambahkan pt-4 -->
         <h1>HMPSPS</h1>
         <p>Himpunan Mahasiswa Program Studi Perbankan Syariah</p>
     </div>
@@ -140,6 +156,7 @@
                     <div class="card-body pt-3">
                         <!-- Menambahkan padding-top -->
                         <h3 class="card-title text-center">Tentang Kami</h3>
+                        <img src="assets/logo_organisasi.png" alt="Logo Organisasi" class="logo-organisasi">
                         <p class="card-text">HMPSPS adalah organisasi mahasiswa yang berfokus pada pengembangan akademik dan non-akademik mahasiswa Ilmu
                             Perbankan Syariah.</p>
 
@@ -150,8 +167,8 @@
 
                         <div class="text-center mt-3">
                             <div class="dropdown">
-                                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #000080; border-color: #000080;">
                                     Kepengurusan
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
