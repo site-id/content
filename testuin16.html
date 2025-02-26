@@ -197,23 +197,25 @@
     </div>
 
     <!-- Modal Kepengurusan (Modal ini dapat diisi data dinamis) -->
-    <div class="modal fade" id="kepengurusanModal" tabindex="-1" aria-labelledby="kepengurusanModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+   <div class="modal fade" id="kepengurusanModal" tabindex="-1" aria-labelledby="kepengurusanLabel" aria-hidden="true">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="kepengurusanModalLabel">Struktur Kepengurusan</h5>
+                    <h5 class="modal-title" id="kepengurusanLabel">Kepengurusan</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body" id="isi-kepengurusan">
-                    <p class="text-center">Memuat data kepengurusan...</p>
+                <div class="modal-body" id="kepengurusanContent">
+                    <p>Memuat data kepengurusan...</p>
+                </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn" style="background-color: #000080; color: white; border: none; padding: 10px 20px;" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                 </div>
             </div>
         </div>
     </div>
-    <script>
+
+<script>
         document.querySelectorAll("[data-bs-target='#kepengurusanModal']").forEach(button => {
             button.addEventListener("click", function() {
                 fetch("testanggota4.html")
