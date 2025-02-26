@@ -95,7 +95,7 @@
                         <button class="btn dropdown-toggle w-100" style="background-color: #000080; color: white; border: none; padding: 10px 20px;" type="button" id="kepengurusanButton" data-bs-toggle="dropdown" aria-expanded="false">
                             Kepengurusan
                         </button>
-                        <ul class="dropdown-menu w-100 text-center"> aria-labelledby="dropdownMenuButton">
+                        <ul class="dropdown-menu w-100 text-center" aria-labelledby="dropdownMenuButton">
                             <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#kepengurusanModal">2025</a></li>
                             <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#kepengurusanModal">2026</a></li>
                             <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#kepengurusanModal">2027</a></li>
@@ -213,7 +213,20 @@
             </div>
         </div>
     </div>
-    
+    <script>
+        document.querySelectorAll("[data-bs-target='#kepengurusanModal']").forEach(button => {
+            button.addEventListener("click", function() {
+                fetch("testanggota4.html")
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById("kepengurusanContent").innerHTML = data;
+                    })
+                    .catch(error => {
+                        document.getElementById("kepengurusanContent").innerHTML = "Gagal memuat data kepengurusan.";
+                    });
+            });
+        });
+    </script>
     <footer class="footer-bca text-center mt-5">
         <div class="footer-links">
             <a href="#">Tentang Kami</a>
