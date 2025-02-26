@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMPSPS UIN Sunan Kalijaga</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%; /* Membuat gambar menjadi oval/lingkaran */
+            margin: auto;
+            display: block;
+            outline: 2px solid #000080; /* Outline untuk foto profil */
+            cursor: pointer; /* Mengubah cursor menjadi pointer saat diarahkan ke gambar */
+        }
+
+        .profile-img-large {
+            width: 200px;
+            height: 200px;
+        }
+
+        .scroll-container {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 10px;
+        }
+        .scroll-container .card {
+            display: inline-block;
+            width: 250px;
+            margin-right: 10px;
+            text-align: center; /* Pusatkan teks di dalam card */
+        }
+
+        /* Style untuk tombol More Info */
+        .btn-more-info {
+            background-color: transparent; /* Hilangkan warna latar belakang */
+            border: 2px solid #000080; /* Warna border sesuai outline */
+            color: #000080; /* Warna teks sesuai outline */
+            display: block; /* Membuat tombol menjadi block-level element */
+            margin: 10px auto; /* Pusatkan tombol secara horizontal */
+            width: fit-content; /* menyesuaikan lebar tombol dengan konten */
+            padding: 5px 10px; /* Sesuaikan padding agar tampilan lebih baik */
+        }
+
+        .btn-more-info:hover {
+            background-color: #000080; /* Warna latar belakang saat hover */
+            color: white; /* Warna teks saat hover */
+        }
+
+        .btn-more-info:focus {
+            outline: 2px solid #000080; /* Warna outline saat fokus */
+        }
+
+        /* Style untuk modal gambar */
+        .modal-image {
+            max-width: 90%; /* Lebar maksimum gambar di modal */
+            max-height: 90vh; /* Tinggi maksimum gambar di modal */
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container text-center my-5">
+        <h2>Struktur Kepengurusan HMPSPS</h2>
+
+        <!-- Ketua Umum & Wakil Ketua -->
+        <div class="scroll-container my-4">
+            <div class="card p-3">
+                <img src="assets/ketua.jpg" class="profile-img" alt="Ketua Umum HMPSPS">
+                <h5 class="mt-3">Ketua Umum</h5>
+                <p>Nama Ketua</p>
+                <button class="btn btn-more-info" onclick="showInfo('ketua', 'Nama Ketua', 'assets/ketua.jpg', '12345', '2023', 'Alamat Ketua')">More Info</button>
+            </div>
+            <div class="card p-3">
+                <img src="assets/wakil.jpg" class="profile-img" alt="Wakil Ketua HMPSPS">
+                <h5 class="mt-3">Wakil Ketua</h5>
+                <p>Nama Wakil Ketua</p>
+                <button class="btn btn-more-info" onclick="showInfo('wakil', 'Nama Wakil Ketua', 'assets/wakil.jpg', '67890', '2024', 'Alamat Wakil Ketua')">More Info</button>
+            </div>
+        </div>
+
+        <!-- Bendahara & Sekretaris -->
+        <div class="scroll-container my-4">
+            <div class="card p-3">
+                <img src="assets/bendahara1.jpg" class="profile-img" alt="Bendahara 1 HMPSPS">
+                <h5 class="mt-3">Bendahara 1</h5>
+                <p>Nama Bendahara 1</p>
+                <button class="btn btn-more-info" onclick="showInfo('bendahara1', 'Nama Bendahara 1', 'assets/bendahara1.jpg', '11223', '2022', 'Alamat Bendahara 1')">More Info</button>
+            </div>
+            <div class="card p-3">
+                <img src="assets/bendahara2.jpg" class="profile-img" alt="Bendahara 2 HMPSPS">
+                <h5 class="mt-3">Bendahara 2</h5>
+                <p>Nama Bendahara 2</p>
+                <button class="btn btn-more-info" onclick="showInfo('bendahara2', 'Nama Bendahara 2', 'assets/bendahara2.jpg', '44556', '2023', 'Alamat Bendahara 2')">More Info</button>
+            </div>
+           <div class="card p-3">
+                <img src="assets/bendahara2.jpg" class="profile-img" alt="Bendahara 2 HMPSPS">
+                <h5 class="mt-3">Bendahara 2</h5>
+                <p>Nama Bendahara 2</p>
+                <button class="btn btn-more-info" onclick="showInfo('bendahara2', 'Nama Bendahara 2', 'assets/bendahara2.jpg', '44556', '2023', 'Alamat Bendahara 2')">More Info</button>
+           </div>
+           <div class="card p-3">
+                <img src="assets/bendahara2.jpg" class="profile-img" alt="Bendahara 2 HMPSPS">
+                <h5 class="mt-3">Bendahara 2</h5>
+                <p>Nama Bendahara 2</p>
+                <button class="btn btn-more-info" onclick="showInfo('bendahara2', 'Nama Bendahara 2', 'assets/bendahara2.jpg', '44556', '2023', 'Alamat Bendahara 2')">More Info</button>
+           </div>
+        </div>
+
+        <!-- 5 Divisi Kepala dan Anggota -->
+        <h3 class="mt-5">Divisi</h3>
+        <div class="scroll-container my-4">
+            <script>
+                const divisiList = ['Humas', 'Entre', 'Litbang', 'MIT', 'PSDM'];
+                divisiList.forEach(divisi => {
+                    document.write(`
+                        <div class="card p-3">
+                            <img src="assets/${divisi.toLowerCase()}.jpg" class="profile-img" alt="Kepala Divisi ${divisi} HMPSPS">
+                            <h5 class="mt-3">Kepala Divisi ${divisi}</h5>
+                            <p>Nama Kepala ${divisi}</p>
+                            <button class="btn btn-more-info" onclick="showInfo('${divisi.toLowerCase()}', 'Nama Kepala ${divisi}', 'assets/${divisi.toLowerCase()}.jpg', '77889', '2024', 'Alamat Kepala ${divisi}')">More Info</button>
+                            <button class="btn btn-secondary mt-2" onclick="showAnggota('${divisi.toLowerCase()}')">Anggota</button>
+                        </div>
+                    `);
+                });
+            </script>
+        </div>
+    </div>
+
+    <!-- Modal Pop-up Info -->
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalLabel">Informasi</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="infoModalBody">
+                    <!-- Konten akan diisi oleh JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal untuk tampilan gambar penuh -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel">Gambar Penuh</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="" alt="Gambar Penuh" id="fullImage" class="modal-image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showInfo(jabatan, nama, gambar, nim, angkatan, alamat) {
+            const modalBody = document.getElementById('infoModalBody');
+            modalBody.innerHTML = `
+                <div style="text-align: center;">
+                    <img src="${gambar}" alt="Foto Profil" class="profile-img profile-img-large" onclick="openImageModal('${gambar}')">
+                    <h4 class="mt-3">${nama}</h4>
+                    <p><b>Jabatan:</b> ${jabatan}</p>
+                    <p><b>NIM:</b> ${nim}</p>
+                    <p><b>Angkatan:</b> ${angkatan}</p>
+                    <p><b>Alamat:</b> ${alamat}</p>
+                </div>
+            `;
+
+            const infoModal = new bootstrap.Modal(document.getElementById('infoModal'));
+            infoModal.show();
+        }
+
+        function showAnggota(divisi) {
+            let anggotaHTML = '<div class="scroll-container">';
+            for (let i = 1; i <= 5; i++) {
+                const namaAnggota = `Nama Anggota ${i}`;
+                const gambarAnggota = `assets/${divisi}_anggota${i}.jpg`;
+                const nimAnggota = `9999${i}`;
+                const angkatanAnggota = '2025';
+                const alamatAnggota = `Alamat Anggota ${i}`;
+
+                anggotaHTML += `
+                    <div class="card p-3">
+                        <img src="${gambarAnggota}" class="profile-img" alt="Anggota ${i} Divisi ${divisi} HMPSPS">
+                        <h5 class="mt-3">Anggota ${i}</h5>
+                        <p>${namaAnggota}</p>
+                        <button class="btn btn-more-info" onclick="showInfoAnggota('${divisi}', ${i}, '${namaAnggota}', '${gambarAnggota}', '${nimAnggota}', '${angkatanAnggota}', '${alamatAnggota}')">More Info</button>
+                    </div>
+                `;
+            }
+            anggotaHTML += '</div>';
+            document.getElementById("infoModalBody").innerHTML = anggotaHTML;
+            var infoModal = new bootstrap.Modal(document.getElementById('infoModal'));
+            infoModal.show();
+        }
+
+         function showInfoAnggota(divisi, nomor, nama, gambar, nim, angkatan, alamat) {
+            const modalBody = document.getElementById('infoModalBody');
+            modalBody.innerHTML = `
+                <div style="text-align: center;">
+                    <img src="${gambar}" alt="Foto Profil" class="profile-img profile-img-large" onclick="openImageModal('${gambar}')">
+                    <h4 class="mt-3">${nama}</h4>
+                    <p><b>Divisi:</b> ${divisi}</p>
+                    <p><b>Nomor Anggota:</b> ${nomor}</p>
+                    <p><b>NIM:</b> ${nim}</p>
+                    <p><b>Angkatan:</b> ${angkatan}</p>
+                    <p><b>Alamat:</b> ${alamat}</p>
+                </div>
+            `;
+
+            const infoModal = new bootstrap.Modal(document.getElementById('infoModal'));
+            infoModal.show();
+        }
+
+        function openImageModal(imageSrc) {
+            const fullImage = document.getElementById('fullImage');
+            fullImage.src = imageSrc;
+
+            const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+            imageModal.show();
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
