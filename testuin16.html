@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMPSPS UIN Sunan Kalijaga</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Berita Scroll Vertikal */
+        #berita-container {
+            height: 400px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+        /* Footer mirip BCA */
+        .footer-bca {
+            background-color: #000080;
+            color: white;
+            padding: 50px 40px;
+        }
+        .footer-bca .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        /* Style untuk logo HMPS */
+        .logo-organisasi {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 10px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="background-color: #000080 !important;">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="assets/logo.png" alt="Logo" width="40"> HMPSPS UIN Sunan Kalijaga
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#berita">Berita</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container mt-5 pt-4 text-center">
+        <h1>HMPS-PS</h1>
+        <p>Himpunan Mahasiswa Program Studi Perbankan Syariah</p>
+    </div>
+
+    <!-- Konten Utama -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Bagian Berita -->
+            <div class="col-md-8">
+                <h2 class="text-center">Berita Terbaru</h2>
+                <div id="berita-container" class="border p-3">
+                    <div class="card mb-3">
+                        <!-- Gambar Pamflet yang dapat diklik -->
+                        <img src="https://via.placeholder.com/600x300" alt="Pamflet Berita" class="card-img-top" data-bs-toggle="modal" data-bs-target="#pamfletModal" style="cursor: pointer;">
+                        <div class="card-body">
+                            <h5 class="card-title">Berita 1</h5>
+                            <p class="card-text">Deskripsi singkat berita 1.</p>
+                            <!-- Tombol Baca Selengkapnya yang membuka modal detail berita -->
+                            <button class="btn w-100" style="background-color: #000080; color: white; border: none; padding: 10px 20px;" data-bs-toggle="modal" data-bs-target="#beritaModal">Baca Selengkapnya</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bagian Tentang Kami -->
+            <div class="col-md-4">
+                <div class="card bg-light p-3 text-center">
+                    <h3 class="text-center">Tentang Kami</h3>
+                    <img src="https://site-id.github.io/content/logoprofilehmps.jpg" alt="Logo HMPS" class="logo-organisasi" style="border: 2px solid #000080; padding: 5px;">
+                    <button class="btn w-100 mt-2" style="background-color: #000080; color: white; border: none; padding: 10px 20px;" data-bs-toggle="modal" data-bs-target="#tentangKamiModal">Baca Selengkapnya</button>
+                    <button class="btn w-100 mt-2" style="background-color: #000080; color: white; border: none; padding: 10px 20px;" data-bs-toggle="modal" data-bs-target="#visiMisiModal">Visi & Misi</button>
+                    
+                    <!-- Tombol Kepengurusan -->
+                    <div class="mt-3">
+                        <button class="btn dropdown-toggle w-100" style="background-color: #000080; color: white; border: none; padding: 10px 20px;" type="button" id="kepengurusanButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            Kepengurusan
+                        </button>
+                        <ul class="dropdown-menu w-100 text-center"> aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#kepengurusanModal">2025</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#kepengurusanModal">2026</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#kepengurusanModal">2027</a></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+        document.querySelectorAll("[data-bs-target='#kepengurusanModal']").forEach(button => {
+            button.addEventListener("click", function() {
+                fetch("testanggota4.html")
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById("kepengurusanContent").innerHTML = data;
+                    })
+                    .catch(error => {
+                        document.getElementById("kepengurusanContent").innerHTML = "Gagal memuat data kepengurusan.";
+                    });
+            });
+        });
+    </script>
+    <!-- Modal Pamflet -->
+    <div class="modal fade" id="pamfletModal" tabindex="-1" aria-labelledby="pamfletLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="pamfletLabel">Pamflet Berita</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <!-- Gambar pamflet zoom, gunakan kelas img-fluid untuk responsif -->
+                    <img src="https://via.placeholder.com/800x600" alt="Pamflet Zoom" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Berita -->
+    <div class="modal fade" id="beritaModal" tabindex="-1" aria-labelledby="beritaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="beritaLabel">Detail Berita</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5>Judul Berita</h5>
+                    <p>Ini adalah isi lengkap dari berita yang bisa dibaca setelah pengguna mengklik tombol "Baca Selengkapnya".</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Visi & Misi -->
+    <div class="modal fade" id="visiMisiModal" tabindex="-1" aria-labelledby="visiMisiLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="visiMisiLabel">Visi & Misi</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="text-align: justify;">
+                    <h5>VISI & MISI HMPS PS 2025-2026</h5>
+                    <strong>VISI</strong>
+                    <p>Menciptakan Perbankan Syariah yang aktif, progresif, inklusif, dan inovatif. Serta mewujudkan komunitas yang harmonis dengan berlandaskan nilai-nilai ukhuwah Islamiyah.</p>
+                    <strong>MISI</strong>
+                    <ol>
+                        <li>Menjalin kerjasama dengan pihak eksternal maupun internal untuk mendukung peningkatan kualitas mahasiswa perbankan syariah dan terciptanya generasi emas di masa depan.</li>
+                        <li>Menciptakan wadah bagi mahasiswa untuk peningkatan kompetensi dalam bidang kepemimpinan, bahasa asing, serta literasi digital.</li>
+                        <li>Meningkatkan prospek mahasiswa dengan mengenalkan budaya asing yang memotivasi dan menjadi bekal bersaing secara internasional.</li>
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" style="background-color: #000080; color: white; border: none; padding: 10px 20px;" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Tentang Kami -->
+    <div class="modal fade" id="tentangKamiModal" tabindex="-1" aria-labelledby="tentangKamiLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tentangKamiLabel">Tentang Kami</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="text-align: justify;">
+                    Himpunan Mahasiswa Program Studi Perbankan Syariah yang mengatur tentang arahan dan landasan kerja khusus untuk HMPS-PS FEBI UIN SUKA, menjadi wadah formal dan legal bagi seluruh aktivitas kemahasiswaan di Program Studi Perbankan Syariah.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" style="background-color: #000080; color: white; border: none; padding: 10px 20px;" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Kepengurusan (Modal ini dapat diisi data dinamis) -->
+    <div class="modal fade" id="kepengurusanModal" tabindex="-1" aria-labelledby="kepengurusanModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="kepengurusanModalLabel">Struktur Kepengurusan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="isi-kepengurusan">
+                    <p class="text-center">Memuat data kepengurusan...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" style="background-color: #000080; color: white; border: none; padding: 10px 20px;" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer-bca text-center mt-5">
+        <div class="footer-links">
+            <a href="#">Tentang Kami</a>
+            <a href="#">Karir</a>
+            <a href="#">Kontak</a>
+            <a href="#">FAQ</a>
+        </div>
+        <p class="mt-3">&copy; 2025 HMPSPS UIN Sunan Kalijaga. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
